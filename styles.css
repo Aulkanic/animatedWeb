@@ -1,0 +1,188 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: black;
+    color: white;
+    overflow-x: hidden;
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('./images/cave.jpg') no-repeat center center;
+    z-index: 20;
+}
+
+.character {
+    position: absolute;
+    width: 400px;
+    height: 600px;
+    background-size: contain;
+    z-index: 21;
+    left: 200px;
+    background: url('./images/ch4.png') no-repeat center center;
+}
+
+.moving-tree {
+    position: absolute;
+    bottom: 0;
+    width: 550px;
+    height: 800px;
+    left: -120px;
+    background: url('./images/r.gif') no-repeat center center;
+    background-size: cover;
+    z-index: 24;
+}
+
+.moving-tree1 {
+    position: absolute;
+    bottom: 0;
+    width: 550px;
+    height: 600px;
+    right: -120px;
+    background: url('./images/r.gif') no-repeat center center;
+    background-size: contain;
+    transform: scaleX(-1);
+    z-index: 21;
+    bottom: -12px;
+}
+
+header {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #1a1a1a;
+    border-bottom: 1px solid #333;
+}
+.spiderweb{
+    background: url('./images/spiderweb.png') no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 600px;
+    background-size: contain;
+    z-index: 27;
+    height: 300px;
+}
+
+.section {
+    padding: 50px 20px;
+    border-bottom: 1px solid #333;
+    height: 100vh;
+}
+
+.section:nth-child(even) {
+    background-color: #2a2a2a;
+}
+
+.section:nth-child(odd) {
+    background-color:black;
+    z-index: 25px;
+}
+
+#section1, #section2 {
+    position: relative;
+}
+
+.bat {
+    background: url("./images/bats.png");
+    width: 150px;
+    height: 115px;
+    position: absolute;
+    transform: scaleX(-1);
+    z-index: 26;
+}
+
+.bat-1 {
+    top: 5%;
+    left: -10%;
+    animation: birdFly 1s steps(10) infinite, birdMove 15s linear infinite;
+    z-index: 26px;
+    /* here steps(10) are no of birds in the picture */
+}
+
+.bat-2 {
+    top: 20%;
+    left: -10%;
+    animation: birdFly 1s steps(10) infinite, birdMove 15s linear infinite;
+    /* here steps(10) are no of birds in the picture */
+    animation-delay: 3s;
+}
+
+.bat-3 {
+    top: 2%;
+    left: -10%;
+    animation: birdFly 1s steps(10) infinite, birdMove 15s linear infinite;
+    /* here steps(10) are no of birds in the picture */
+    animation-delay: 5s;
+}
+
+/*==now animation time==*/
+
+@keyframes birdFly {
+    0% {
+        background-position-x: 0px;
+    }
+    100% {
+        background-position-x: 1305px;
+    }
+}
+
+/*== now bird move left to right animation time==*/
+
+@keyframes birdMove {
+    0% {
+        left: -10%;
+    }
+    100% {
+        left: 110%;
+    }
+}
+.spider {
+    background: url("./images/sa.png") no-repeat;
+    width: 150px; /* width of a single frame */
+    height: 120px; /* height of a single frame */
+    position: absolute;
+    bottom: 0;
+    background-size: contain; /* ensure it covers the entire element */
+    left: -150px; /* start off-screen */
+    z-index: 27;
+    display: none; /* initially hidden */
+}
+
+@keyframes spiderWalk {
+    0% { background-position: 0; }
+    100% { background-position: -1500px; } /* assuming there are 10 frames (10 * 150px = 1500px) */
+}
+
+@keyframes spiderMove {
+    0% { transform: translateX(-150px); }
+    100% { transform: translateX(calc(100vw + 150px)); } /* move across the entire viewport width */
+}
+
+.spider.walking {
+    display: block;
+    animation: spiderWalk 1s steps(10) infinite, spiderMove 10s linear infinite;
+}
+
+#section2 {
+    width: 100vw;
+    background-size: cover;
+    height: 100vh;
+    background: url('./images/bsck.png') no-repeat center center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.character2 {
+    width: 650px;
+    height: 600px;
+    background-size: contain;
+    z-index: 21;
+    left: 200px;
+    background: url('./images/ch3.png') no-repeat center center;
+}
