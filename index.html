@@ -1,48 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Horror Themed Page</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
- 
-    <header>
-        <h1>Welcome to Monster Land</h1>
-    </header>
-    <section id="section1" class="section">
-        <h2>Section 1</h2>
-        <p>Content for section 1...</p>
-		<div class="moving-tree"></div>
-		<div class="moving-tree1"></div>
-		<div class="background"></div>
-		<div class="character"></div>
-		<div class="bat bat-1"></div>
-		<div class="bat bat-2"></div>
-		<div class="bat bat-3"></div>
-    </section>
-    <section id="section2" class="section">
-		<div class="spiderweb"></div>
-		<div class="character2"></div>
-		<div class="spider walking"></div>
-    </section>
-    <section id="section3" class="section">
-        <h2>Section 3</h2>
-        <p>Content for section 3...</p>
-    </section>
-    <section id="section4" class="section">
-        <h2>Section 4</h2>
-        <p>Content for section 4...</p>
-    </section>
-    <section id="section5" class="section">
-        <h2>Section 5</h2>
-        <p>Content for section 5...</p>
-    </section>
-    <section id="section6" class="section">
-        <h2>Section 6</h2>
-        <p>Content for section 6...</p>
-    </section>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="content-wrapper">
+        <header>
+            <h1>Welcome to Monster Land: $BEANO</h1>
+          </header>
+          <section id="section1" class="section smoke-section">
+            <h2>Section 1</h2>
+            <p>Content for section 1...</p>
+            <div class="moving-tree"></div>
+            <div class="moving-tree1"></div>
+            <div class="background"></div>
+            <div class="character"></div>
+            <div class="bat bat-1"></div>
+            <div class="bat bat-2"></div>
+            <div class="bat bat-3"></div>
+            <div class="smoke"></div>
+          </section>
+          <section id="section2" class="section smoke-section">
+            <div class="spiderweb"></div>
+            <div class="character2"></div>
+            <div class="spider walking"></div>
+            <div class="smoke"></div>
+          </section>
+          <section
+            id="section3"
+            class="section smoke-section"
+            style="
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              flex-direction: column;
+            "
+          >
+            <h1 class="section-title">Spooky Gallery</h1>
+            <swiper-container
+              class="mySwiper"
+              pagination="false"
+              effect="coverflow"
+              grab-cursor="true"
+              autoplay-delay="2500"
+              centered-slides="true"
+              slides-per-view="auto"
+              coverflow-effect-rotate="50"
+              coverflow-effect-stretch="0"
+              coverflow-effect-depth="100"
+              coverflow-effect-modifier="1"
+              coverflow-effect-slide-shadows="true"
+              loop="true"
+            >
+              <swiper-slide>
+                <img src="./images/sw1.gif" />
+              </swiper-slide>
+              <swiper-slide>
+                <img src="./images/sw2.gif" style="object-fit: cover; height: 100%" />
+              </swiper-slide>
+              <swiper-slide>
+                <img src="./images/sw3.gif" />
+              </swiper-slide>
+              <swiper-slide>
+                <img src="./images/sw4.gif" style="object-fit: cover; height: 100%" />
+              </swiper-slide>
+              <swiper-slide>
+                <img src="./images/sw5.gif" style="object-fit: cover; height: 100%" />
+              </swiper-slide>
+              <swiper-slide>
+                <img src="./images/sw6.gif" style="object-fit: cover; height: 100%" />
+              </swiper-slide>
+              <swiper-slide>
+                <img src="./images/sw7.gif" style="object-fit: cover; height: 100%" />
+              </swiper-slide>
+              <swiper-slide>
+                <img src="./images/sw8.gif" style="object-fit: cover; height: 100%" />
+              </swiper-slide>
+              <swiper-slide>
+                <img src="./images/sw9.gif" style="object-fit: cover; height: 100%" />
+              </swiper-slide>
+            </swiper-container>
+            <div class="character3"></div>
+            <div class="smoke"></div>
+          </section>
+          <section id="section4" class="section section4">
+            <h2>$BEANO's Cave</h2>
+            <div class="cave-wrapper">
+              <div class="circle-mask">
+                <img class="popup-image" src="./images/ch1.png" alt="Popup Image" />
+              </div>
+            </div>
+            <div class="smoke"></div>
+            <p>
+              Deep within the dark forest lies the cave of $BEANO, where eerie sounds
+              echo and shadows play tricks on the eyes. Beware if you dare to enter,
+              for $BEANO guards this place with terrifying ferocity.
+            </p>
+          </section>
+      
+          <section id="section5" style="height: max-content;" class="section smoke-section">
+            <h2>$BEANO's Best Friends</h2>
+            <p>
+              Meet the monstrous companions of $BEANO. These creatures are not just
+              horrifying; they are also $BEANO's closest allies in the world of
+              Monster Land.
+            </p>
+            <div class="monster-gallery">
+              <div class="monster">
+                <img src="./images/vampire.gif" alt="Monster 1" />
+                <p>Monster 1: The Vampire</p>
+              </div>
+              <div class="monster">
+                <img src="./images/werewolf.gif" alt="Monster 2" />
+                <p>Monster 2: The Werewolf</p>
+              </div>
+              <div class="monster">
+                <img src="./images/ghost.gif" alt="Monster 3" />
+                <p>Monster 3: The Ghost</p>
+              </div>
+            </div>
+            <div class="smoke"></div>
+          </section>
+          <section id="section6" class="section smoke-section">
+            <h2>Cave Escape Challenge</h2>
+            <p>
+              Embark on a thrilling adventure in our mysterious cave. As you venture
+              deeper into the dark, winding passages, you'll face a series of
+              challenging puzzles and uncover hidden secrets. Can you escape the cave
+              before time runs out?
+            </p>
+            <div class="cave-challenge">
+              <p>
+                <strong>Puzzle 1:</strong> Locate the hidden key to unlock the ancient
+                stone door. The key might be camouflaged within the cave's natural
+                formations or concealed by the shadows.
+              </p>
+              <p>
+                <strong>Puzzle 2:</strong> Decode the message left by a forgotten
+                explorer. The message is etched into the cave walls in an old, cryptic
+                script that requires careful deciphering.
+              </p>
+              <p>
+                <strong>Puzzle 3:</strong> Piece together the fragmented map of the
+                cave. The map sections are scattered throughout, and assembling them
+                will reveal the path to your escape.
+              </p>
+            </div>
+            <p>
+              As you solve each puzzle, the cave's eerie atmosphere grows more
+              intense, and the stakes become higher. The clock is ticking, and every
+              clue brings you closer to freedom—or deeper into the cave's hidden
+              dangers. Only the most resourceful adventurers will make it out in time.
+              Good luck!
+            </p>
+          </section>
+          <audio id="background-music" loop preload="auto">
+            <source src="./draculabgm.mp3" type="audio/mpeg" />
+            Your browser does not support the audio element.
+          </audio>
+          <!-- Modal HTML -->
+
+    </div>
+
+    <div id="welcome-modal" class="modal">
+        <div class="modal-content">
+          <span class="close-button" id="close-modal-btn">&times;</span>
+          <h2>Welcome to Monster Land</h2>
+          <p>Would you like to meet $BEANO?</p>
+          <button id="yes-btn">Yes</button>
+          <button id="no-btn">No</button>
+        </div>
+      </div>
+
+    <script>
+      document
+        .getElementById("play-music-btn")
+        .addEventListener("click", function () {
+          var audio = document.getElementById("background-music");
+          audio.play().catch(function (error) {
+            console.log("Playback failed:", error);
+          });
+        });
+    </script>
     <script src="scripts.js"></script>
-</body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+  </body>
 </html>

@@ -25,16 +25,19 @@ body, html {
     z-index: 21;
     left: 200px;
     background: url('./images/ch4.png') no-repeat center center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .moving-tree {
     position: absolute;
     bottom: 0;
-    width: 550px;
-    height: 800px;
+    width: 550px; /* Adjust width as needed */
+    height: 100%; /* Maintain aspect ratio */
     left: -120px;
     background: url('./images/r.gif') no-repeat center center;
-    background-size: cover;
+    background-size: contain;
     z-index: 24;
 }
 
@@ -51,13 +54,105 @@ body, html {
     bottom: -12px;
 }
 
+@media (max-width: 768px) {
+    .moving-tree,
+    .moving-tree1 {
+        width: 70%; /* Adjust width for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .moving-tree,
+    .moving-tree1 {
+        width: 90%; /* Adjust width for even smaller screens */
+    }
+}
+
 header {
     text-align: center;
     padding: 20px 0;
     background-color: #1a1a1a;
     border-bottom: 1px solid #333;
 }
-.spiderweb{
+h1 {
+    font-size: 3em;
+    color: #b92834;
+    animation: flicker 1.5s infinite, glow 1.5s infinite;
+    position: relative;
+    z-index: 100; /* Ensure it stays above other elements */
+}
+h2 {
+    font-size: 2em;
+    color: red;
+    text-shadow: 0 0 10px red, 0 0 20px #ff4500, 0 0 30px #ffff00, 0 0 40px #ff4500;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 100%;
+    height: 4px;
+    background: red;
+    box-shadow: 0 0 5px red, 0 0 10px #ff4500, 0 0 15px #ffff00, 0 0 20px #ff4500;
+}
+
+p {
+    font-size: 1.2em;
+    color: #f0f0f0;
+    text-shadow: 0 0 5px red, 0 0 10px #ff4500, 0 0 15px #ffff00, 0 0 20px #ff4500;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+h1.section-title {
+    font-size: 2.5em;
+    color: #ff0066;
+    margin-bottom: 20px;
+    text-shadow: 0 0 5px #ff0066, 0 0 10px #ff0066, 0 0 20px #ff0066, 0 0 30px #e63946, 0 0 40px #e63946, 0 0 50px #e63946, 0 0 60px #e63946;
+}
+
+swiper-container {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 300px;
+    height: 300px;
+  }
+
+  swiper-slide img {
+    display: block;
+    width: 100%;
+  }
+
+@keyframes flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        opacity: 1;
+    }
+    20%, 24%, 55% {
+        opacity: 0.5;
+    }
+    22% {
+        opacity: 0;
+    }
+}
+
+@keyframes glow {
+    0%, 100% {
+        text-shadow: 0 0 5px #e63946, 0 0 10px #e63946, 0 0 20px #e63946, 0 0 30px #ff0066, 0 0 40px #ff0066, 0 0 50px #ff0066, 0 0 60px #ff0066;
+    }
+    50% {
+        text-shadow: 0 0 3px #e63946, 0 0 7px #e63946, 0 0 10px #e63946, 0 0 20px #ff0066, 0 0 30px #ff0066, 0 0 40px #ff0066, 0 0 50px #ff0066;
+    }
+}
+.spiderweb {
     background: url('./images/spiderweb.png') no-repeat;
     position: absolute;
     top: 0;
@@ -79,11 +174,11 @@ header {
 }
 
 .section:nth-child(odd) {
-    background-color:black;
+    background-color: black;
     z-index: 25px;
 }
 
-#section1, #section2 {
+#section1, #section2,#section3 {
     position: relative;
 }
 
@@ -101,14 +196,12 @@ header {
     left: -10%;
     animation: birdFly 1s steps(10) infinite, birdMove 15s linear infinite;
     z-index: 26px;
-    /* here steps(10) are no of birds in the picture */
 }
 
 .bat-2 {
     top: 20%;
     left: -10%;
     animation: birdFly 1s steps(10) infinite, birdMove 15s linear infinite;
-    /* here steps(10) are no of birds in the picture */
     animation-delay: 3s;
 }
 
@@ -116,11 +209,8 @@ header {
     top: 2%;
     left: -10%;
     animation: birdFly 1s steps(10) infinite, birdMove 15s linear infinite;
-    /* here steps(10) are no of birds in the picture */
     animation-delay: 5s;
 }
-
-/*==now animation time==*/
 
 @keyframes birdFly {
     0% {
@@ -131,8 +221,6 @@ header {
     }
 }
 
-/*== now bird move left to right animation time==*/
-
 @keyframes birdMove {
     0% {
         left: -10%;
@@ -141,26 +229,27 @@ header {
         left: 110%;
     }
 }
+
 .spider {
     background: url("./images/sa.png") no-repeat;
-    width: 150px; /* width of a single frame */
-    height: 120px; /* height of a single frame */
+    width: 150px;
+    height: 120px;
     position: absolute;
     bottom: 0;
-    background-size: contain; /* ensure it covers the entire element */
-    left: -150px; /* start off-screen */
+    background-size: contain;
+    left: -150px;
     z-index: 27;
-    display: none; /* initially hidden */
+    display: none;
 }
 
 @keyframes spiderWalk {
     0% { background-position: 0; }
-    100% { background-position: -1500px; } /* assuming there are 10 frames (10 * 150px = 1500px) */
+    100% { background-position: -1500px; }
 }
 
 @keyframes spiderMove {
     0% { transform: translateX(-150px); }
-    100% { transform: translateX(calc(100vw + 150px)); } /* move across the entire viewport width */
+    100% { transform: translateX(calc(100vw + 150px)); }
 }
 
 .spider.walking {
@@ -177,6 +266,14 @@ header {
     justify-content: center;
     align-items: center;
 }
+#section3 {
+    width: 100vw;
+    background-size: cover;
+    height:max-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .character2 {
     width: 650px;
@@ -185,4 +282,213 @@ header {
     z-index: 21;
     left: 200px;
     background: url('./images/ch3.png') no-repeat center center;
+}
+.character3 {
+    width: 450px;
+    height: 250px;
+    background-size: contain;
+    z-index: 25;
+    background: url('./images/ch2.png') no-repeat center center;
+}
+/* Smoke effect */
+.smoke {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Allows interaction with other elements */
+    z-index: 30;
+}
+
+.smoke::before, .smoke::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url('./images/smoke.png') no-repeat center center;
+    background-size: cover;
+    opacity: 2;
+    animation: smokeMove 20s linear infinite;
+}
+
+.smoke::after {
+    animation-delay: 10s;
+    opacity: 0.15;
+}
+
+@keyframes smokeMove {
+    0% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-100%) scale(1.2);
+    }
+    100% {
+        transform: translateY(-200%) scale(1.4);
+    }
+}
+
+.section4 {
+    position: relative;
+    padding: 50px 20px;
+    border-bottom: 1px solid #333;
+    height: 100vh; /* Full viewport height */
+    overflow: hidden;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+.cave-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.cave-image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Ensures the circle mask effect is visible */
+}
+
+.cave-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures image covers the container */
+}
+
+.circle-mask {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 80vh;
+    border-radius: 50%;
+    background-image: url("./images/cave.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    clip-path: circle(50% at 50% 50%); /* Ensures the mask is circular */
+}
+
+
+.popup-image {
+ 
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 80%;
+    object-fit: contain;
+    z-index: 15; /* Ensure it appears above other content */
+}
+
+
+
+@media (prefers-reduced-motion: no-preference) {
+    .section4 {
+        position: relative;
+        overflow: hidden;
+    }
+}
+
+.monster-gallery {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+    .monster-gallery {
+        display: flex;
+        flex-direction: column;
+        height: max-content;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 480px) {
+    .moving-tree,
+    .moving-tree1 {
+        width: 90%; /* Adjust width for even smaller screens */
+    }
+}
+
+.monster {
+    margin: 20px;
+    text-align: center;
+}
+
+.monster img {
+    width: 300px;
+    height: 400px;
+    border: 5px solid #8b0000;
+    box-shadow: 0 0 10px #8b0000, 0 0 20px #ff4500, 0 0 30px #ffff00, 0 0 40px #ff4500;
+}
+
+.escape-room {
+    padding: 20px;
+    background-color: #1a1a1a;
+    border: 5px solid #8b0000;
+    box-shadow: 0 0 10px #8b0000, 0 0 20px #ff4500, 0 0 30px #ffff00, 0 0 40px #ff4500;
+}
+
+
+.section4 {
+    position: relative;
+    overflow: hidden;
+    width: 100vw;
+}
+
+/* Styles for the modal */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 251, 251, 0.6); /* Black background with opacity */
+}
+
+/* Modal content */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+/* Close button */
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* Close button hover effect */
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Blur background effect */
+.blur-background {
+    filter: blur(25px);
+    transition: filter 0.3s ease;
+    /* Optional: to ensure visibility of blurred content */
+    z-index: 1; /* Ensure background content is still below the modal */
 }
