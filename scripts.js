@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
     gsap.registerPlugin(ScrollTrigger);
 
     // GSAP animation for the circle mask
@@ -35,48 +35,162 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+    // Register GSAP plugins if needed (not required for this simple animation)
+    // gsap.registerPlugin(ScrollTrigger);
 
-document.addEventListener('DOMContentLoaded', function() {
-    var modal = document.getElementById('welcome-modal');
-    var closeBtn = document.getElementById('close-modal-btn');
-    var yesBtn = document.getElementById('yes-btn');
-    var noBtn = document.getElementById('no-btn');
-    var audio = document.getElementById('background-music');
-    var contentWrapper = document.getElementById('content-wrapper');
-
-    // Show the modal when the page is loaded
-    modal.style.display = 'block';
-    contentWrapper.classList.add('blur-background');
-
-    // Close the modal
-    closeBtn.addEventListener('click', function() {
-        modal.style.display = 'none';
-        contentWrapper.classList.remove('blur-background');
-    });
-
-    // Handle Yes button click
-    yesBtn.addEventListener('click', function() {
-        // Play the background music
-        audio.play().catch(function(error) {
-            console.log('Playback failed:', error);
-        });
-        modal.style.display = 'none';
-        contentWrapper.classList.remove('blur-background');
-    });
-
-    // Handle No button click
-    noBtn.addEventListener('click', function() {
-        alert('Maybe next time!');
-        modal.style.display = 'none';
-        contentWrapper.classList.remove('blur-background');
-    });
-
-    // Close the modal if the user clicks outside of the modal content
-    window.addEventListener('click', function(event) {
-        if (event.target === modal) {
-            modal.style.display = 'none';
-            contentWrapper.classList.remove('blur-background');
+    // Animate the .character element on page load
+    gsap.to('.character', {
+        duration: 1,
+        scale: 1,
+        opacity: 1,
+        ease: 'elastic.out(1, 0.3)', // Elastic easing for a pop-in effect
+        onComplete: () => {
+            console.log('Character animation complete');
         }
     });
 });
+
+
+
+let lastScrollTop = 0;
+const yeti = document.querySelector('.yetiCharacter');
+
+window.addEventListener('scroll', function () {
+  const st = window.scrollY || document.documentElement.scrollTop;
+
+  if (st > lastScrollTop) {
+    // Downscroll code
+    yeti.classList.remove('moveUp');
+    yeti.classList.add('moveDown');
+  } else {
+    // Upscroll code
+    yeti.classList.remove('moveDown');
+    yeti.classList.add('moveUp');
+  }
+  lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+});
+
+
+
+// Ensure GSAP is included and available
+document.addEventListener('DOMContentLoaded', () => {
+    const section6 = document.getElementById('section6');
+    const grassLeft = document.querySelector('.grass-left');
+    const grassRight = document.querySelector('.grass-right');
+  
+    // ScrollTrigger animation
+    gsap.registerPlugin(ScrollTrigger);
+  
+    gsap.fromTo(grassLeft, {
+      x: "-100vw", // Start off-screen left
+      opacity: 1
+    }, {
+      x: "0",
+      opacity: 1,
+      scrollTrigger: {
+        trigger: section6,
+        start: "top center",
+        end: "bottom top",
+        scrub: 1
+      }
+    });
+  
+    gsap.fromTo(grassRight, {
+      x: "100vw", // Start off-screen right
+      opacity: 1
+    }, {
+      x: "0",
+      opacity: 1,
+      scrollTrigger: {
+        trigger: section6,
+        start: "top center",
+        end: "bottom top",
+        scrub: 1
+      }
+    });
+  });
+  document.addEventListener('DOMContentLoaded', () => {
+    const section1 = document.getElementById('section1');
+    const fenceLeft = document.querySelector('.fence-left');
+    const fenceRight = document.querySelector('.fence-right');
+  
+    // Register GSAP ScrollTrigger plugin
+    gsap.registerPlugin(ScrollTrigger);
+  
+    gsap.fromTo(fenceLeft, {
+      x: "0", // Start at its original position
+      opacity: 1
+    }, {
+      x: "-100vw", // Move off-screen to the left
+      opacity: 1, // Fade out
+      scrollTrigger: {
+        trigger: section1,
+        start: "top center",
+        end: "bottom top",
+        scrub: 1
+      }
+    });
+  
+    gsap.fromTo(fenceRight, {
+      x: "0", // Start at its original position
+      opacity: 1
+    }, {
+      x: "100vw", // Move off-screen to the right
+      opacity: 1, // Fade out
+      scrollTrigger: {
+        trigger: section1,
+        start: "top center",
+        end: "bottom top",
+        scrub: 1
+      }
+    });
+  });
+  
+  document.addEventListener('DOMContentLoaded', () => {
+    // Register GSAP plugins
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Function to animate sections
+    const animateSection = (section) => {
+        gsap.fromTo(section, {
+            y: 100, // Start from below
+            opacity: 0
+        }, {
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            scrollTrigger: {
+                trigger: section,
+                start: "top 80%",
+                end: "top 30%",
+                scrub: true,
+                markers: false
+            }
+        });
+    };
+
+    // Target each section with the class 'animate-section'
+    const sections = document.querySelectorAll('.animate-section');
+    
+    sections.forEach(section => {
+        animateSection(section);
+    });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const bird = document.querySelector('.bird');
+  
+    gsap.fromTo(bird, {
+      x: "-100px", // Start off-screen to the left
+    }, {
+      x: "100vw", // Move across the screen
+      duration: 10, // Duration of the animation
+      repeat: -1, // Repeat indefinitely
+      ease: "linear", // Linear motion
+    });
+  });
+  
+  
+
 
