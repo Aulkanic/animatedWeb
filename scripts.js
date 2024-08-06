@@ -78,16 +78,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const section6 = document.getElementById('section6');
     const grassLeft = document.querySelector('.grass-left');
     const grassRight = document.querySelector('.grass-right');
-  
+
     // ScrollTrigger animation
     gsap.registerPlugin(ScrollTrigger);
-  
+
     gsap.fromTo(grassLeft, {
       x: "-100vw", // Start off-screen left
       opacity: 1
     }, {
       x: "0",
       opacity: 1,
+      duration: 1, // Animation duration
       scrollTrigger: {
         trigger: section6,
         start: "top center",
@@ -95,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
         scrub: 1
       }
     });
-  
+
     gsap.fromTo(grassRight, {
       x: "100vw", // Start off-screen right
       opacity: 1
@@ -109,7 +110,8 @@ document.addEventListener('DOMContentLoaded', () => {
         scrub: 1
       }
     });
-  });
+});
+
   document.addEventListener('DOMContentLoaded', () => {
     const section1 = document.getElementById('section1');
     const fenceLeft = document.querySelector('.fence-left');
@@ -178,18 +180,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-    const bird = document.querySelector('.bird');
+// document.addEventListener('DOMContentLoaded', () => {
+//     const bird = document.querySelector('.bird');
   
-    gsap.fromTo(bird, {
-      x: "-100px", // Start off-screen to the left
-    }, {
-      x: "100vw", // Move across the screen
-      duration: 10, // Duration of the animation
-      repeat: -1, // Repeat indefinitely
-      ease: "linear", // Linear motion
-    });
-  });
+//     // GSAP animation for moving the bird
+//     gsap.fromTo(bird, {
+//       x: "-100px", // Start off-screen to the left
+//     }, {
+//       x: "100vw", // Move across the screen
+//       duration: 10, // Duration of the animation
+//       repeat: -1, // Repeat indefinitely
+//       ease: "linear", // Linear motion
+//     });
+//   });
+  
   
   
 

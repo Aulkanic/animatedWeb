@@ -703,18 +703,18 @@ swiper-slide img {
 }
 
 .grass {
-  position: absolute;
-  width: 100%; /* Adjust size as needed */
-  height: 270px; /* Adjust size as needed */
-  background-image: url("./images/grass.png"); /* Path to your cloud image */
-  background-size: cover;
-  background-repeat: no-repeat;
-  opacity: 0; /* Initially hidden */
-  transition: opacity 1s ease-in-out; /* Transition for fade-in effect */
+    position: absolute;
+    width: 100%; /* Adjust size as needed */
+    height: 350px; /* Adjust size as needed */
+    background-image: url("./images/grass.png"); /* Path to your grass image */
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0; /* Initially hidden */
+    z-index: 40px;
 }
 .fence {
     position: absolute;
-    width: 100%;
+    width: 90%;
     height: 270px;
     background-image: url("./images/fence.png"); /* Path to your fence image */
     background-size: cover;
@@ -947,24 +947,68 @@ swiper-slide img {
 
 .bird {
     position: absolute;
-    top: 50px; /* Adjust as needed */
-    left: -100px; /* Start position off-screen */
-    width: calc(600px / 4); /* Width of one frame */
-    height: 150px; /* Height of one frame */
-    background-image: url('./images/birdsprite.png'); /* Path to your sprite sheet */
-    background-size: 400px 100px; /* Total size of the sprite sheet */
+    width: 170px; /* Width of one frame */
+    height: calc(320px / 4); /* Height of one frame */
+    background-image: url('./images/bird.png'); /* Path to your sprite sheet */
+    background-size: 500px 200px; /* Total size of the sprite sheet (5 columns x 2 rows) */
     background-repeat: no-repeat;
-    animation: fly 4s steps(4) infinite; /* Animation settings */
-    z-index: 38;
+    animation:flap 0.5s steps(3) infinite,fly1 10s linear infinite;
   }
   
-  @keyframes fly {
-    0% {
-      transform: translateX(-100px); /* Start position */
-    }
-    100% {
-      transform: translateX(calc(100vw + 100px)); /* End position */
-    }
+  /* Unique positions for each bird */
+  .bird-1 {
+    top: 10%;
+    left: 10%;
+    animation:flap 0.5s steps(3) infinite,fly1 10s linear infinite;
   }
   
+  .bird-2 {
+    top: 20%;
+    left: 30%;
+    animation:flap 0.5s steps(3) infinite,fly1 10s linear infinite;
+  }
+  
+  .bird-3 {
+    top: 40%;
+    left: 50%;
+    animation:flap 0.5s steps(3) infinite,fly1 10s linear infinite;
+  }
+  
+  .bird-4 {
+    top: 60%;
+    left: 70%;
+    animation:flap 0.5s steps(3) infinite,fly1 10s linear infinite;
+  }
+  
+  /* Flying animations for each bird */
+  @keyframes fly1 {
+    0% { transform: translateX(-100px); }
+    100% { transform: translateX(calc(100vw + 100px)); }
+  }
+  
+  @keyframes fly2 {
+    0% { transform: translateX(-100px); }
+    100% { transform: translateX(calc(100vw + 100px)); }
+  }
+  
+  @keyframes fly3 {
+    0% { transform: translateX(-100px); }
+    100% { transform: translateX(calc(100vw + 100px)); }
+  }
+  
+  @keyframes fly4 {
+    0% { transform: translateX(-100px); }
+    100% { transform: translateX(calc(100vw + 100px)); }
+  }
+
+  @keyframes flap {
+    from {
+      background-position: 0 0; 
+      transform: scale(1.5);
+    }
+    to {
+      background-position: -500px 0; /* Move through all columns */
+      transform: scale(1.5);
+    }
+  }
   
